@@ -56,7 +56,8 @@ public class AuthorDaoJDBC implements Dao<Author> {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return null; }
+        return null;
+    }
 
     @Override
     public List<Author> getAll() {
@@ -64,14 +65,14 @@ public class AuthorDaoJDBC implements Dao<Author> {
             Connection connection = dataSource.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "SELECT * FROM author;");
-            ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSet rs = preparedStatement.executeQuery();
             List<Author> authors = new ArrayList<>();
-            while (resultSet.next()) {
+            while (rs.next()) {
                 Author author = new Author(
-                        resultSet.getString("first_name"),
-                        resultSet.getString("last_name"),
-                        resultSet.getDate("birth_date"));
-                author.setId(resultSet.getInt("id"));
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getDate("birth_date"));
+                author.setId(rs.getInt("id"));
                 authors.add(author);
             }
             return authors;
