@@ -1,6 +1,5 @@
 package com.codecool.books.model;
 
-import com.codecool.books.view.UserInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;

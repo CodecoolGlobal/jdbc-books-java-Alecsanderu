@@ -70,9 +70,9 @@ public class Main {
         PGSimpleDataSource dataSource = new PGSimpleDataSource();
 
         // TODO: update database parameters
-        dataSource.setDatabaseName("books");
-        dataSource.setUser("pawel");
-        dataSource.setPassword("pawel");
+        dataSource.setDatabaseName(System.getenv("PSQL_NAME"));
+        dataSource.setUser(System.getenv("PSQL_USER"));
+        dataSource.setPassword(System.getenv("PSQL_PASS"));
 
         ui.println("Trying to connect...");
         dataSource.getConnection().close();
