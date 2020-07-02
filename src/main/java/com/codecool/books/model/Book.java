@@ -12,5 +12,7 @@ public @Data class Book {
 		this.title = title;
 	}
 
-
+	public String toString(){
+		return "Book Author : " + this.author + ", Title: " + this.title;
+	}
 }
